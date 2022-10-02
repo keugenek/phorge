@@ -13,8 +13,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Login to DockerHub
-      run: echo ${{ secrets. DOCKER_HUB_TOKEN }} | docker login -u ${{ secrets. DOCKER_HUB_USERNAME }} --password-stdin
+      run: echo ${{secrets.DOCKER_HUB_TOKEN}} | docker login -u ${{secrets.DOCKER_HUB_USERNAME}} --password-stdin
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag rivshiell/phabricator-docker:latest
+      run: docker build . --file Dockerfile --tag keugenek/phorge:latest
     - name: Push Docker image to registry
-      run: docker push rivshiell/phabricator-docker:latest
+      run: docker push keugenek/phorge:latest
